@@ -1,0 +1,201 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            background-color: #fffbe8;
+            margin: 0;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+        }
+        .Topic{
+            text-align: center;
+            background-color: #73cdff;
+            padding: 1rem;
+            margin:0;
+            font-size: 36px;
+        }
+        #endBtn{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #uploadFile{
+            visibility: hidden;
+            display: none;
+        }
+        #realUploadFile{
+            border-width: 2px;
+            border-style: solid;
+            /* border-radius: 15px; */
+        }
+        .btn{
+            background-color: #ffe476;
+            padding: 0.5rem;
+            margin: 1rem 0rem;
+            border-style: solid;
+            border-radius: 25px;
+            border-width: 2px;
+            border-color: #ff97d5;
+            font-size: 18px;
+        }
+        .info{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            /* justify-content: c */
+        }
+        .typeTile,.colon,.completely,.inputCredit,.from,.conditionCredit,.creditText{
+            margin-left: 10px;
+            text-align: end;
+        }
+        .table{
+            margin-left: 10%;
+        }
+        .completely{
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="Topic">โปรแกรมคำนวณหน่วยกิต</h1>
+
+    <form id="inputSection">
+
+        <!-- <div id="inputBoxField">
+            <div id="input1" class="inputbox">
+                <div class="order">1</div>
+                <input type="text" name="subject" placeholder="subject" value="SCMA490">
+                <select name="type">
+                    <option value="">โปรดเลือก</option>
+                    <option value="วิชาศึกษาทั่วไป">วิชาศึกษาทั่วไป</option>
+                    <option value="วิชาเฉพาะ" selected>วิชาเฉพาะ</option>
+                    <option value="วิชาเสรี">วิชาเสรี</option>
+                </select>
+                <select name="credit">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3" selected>3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            <div id="input2" class="inputbox">
+                <div class="order">2</div>
+                <input type="text" name="subject" placeholder="subject" value="SCMA118">
+                <select name="type">
+                    <option value="">โปรดเลือก</option>
+                    <option value="วิชาศึกษาทั่วไป">วิชาศึกษาทั่วไป</option>
+                    <option value="วิชาเฉพาะ" selected>วิชาเฉพาะ</option>
+                    <option value="วิชาเสรี">วิชาเสรี</option>
+                </select>
+                <select name="credit">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3" selected>3</option>
+                    <option value="4">4</option>
+                </select>
+                <button type="button" onclick="delInput('input2')" class="delBtn">del</button>
+            </div>
+            <div id="input3" class="inputbox">
+                <div class="order">3</div>
+                <input type="text" name="subject" placeholder="subject" value="SCMA371">
+                <select name="type">
+                    <option value="">โปรดเลือก</option>
+                    <option value="วิชาศึกษาทั่วไป" selected>วิชาศึกษาทั่วไป</option>
+                    <option value="วิชาเฉพาะ">วิชาเฉพาะ</option>
+                    <option value="วิชาเสรี">วิชาเสรี</option>
+                </select>
+                <select name="credit">
+                    <option value="1">1</option>
+                    <option value="2" selected>2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <button type="button" onclick="delInput('input3')" class="delBtn">del</button>
+            </div>
+            <div id="input4" class="inputbox">
+                <div class="order">4</div>
+                <input type="text" name="subject" placeholder="subject" value="SCMA168">
+                <select name="type">
+                    <option value="">โปรดเลือก</option>
+                    <option value="วิชาศึกษาทั่วไป" selected>วิชาศึกษาทั่วไป</option>
+                    <option value="วิชาเฉพาะ">วิชาเฉพาะ</option>
+                    <option value="วิชาเสรี">วิชาเสรี</option>
+                </select>
+                <select name="credit">
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <button type="button" onclick="delInput('input4')" class="delBtn">del</button>
+            </div>
+            <div id="input5" class="inputbox">
+                <div class="order">5</div>
+                <input type="text" name="subject" placeholder="subject" value="LAEN223">
+                <select name="type">
+                    <option value="">โปรดเลือก</option>
+                    <option value="วิชาศึกษาทั่วไป">วิชาศึกษาทั่วไป</option>
+                    <option value="วิชาเฉพาะ">วิชาเฉพาะ</option>
+                    <option value="วิชาเสรี" selected>วิชาเสรี</option>
+                </select>
+                <select name="credit">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4" selected>4</option>
+                </select>
+                <button type="button" onclick="delInput('input5')" class="delBtn">del</button>
+            </div>
+            <div id="input6" class="inputbox">
+                <div class="order">6</div>
+                <input type="text" name="subject" placeholder="subject" value="SHSS161">
+                <select name="type">
+                    <option value="">โปรดเลือก</option>
+                    <option value="วิชาศึกษาทั่วไป">วิชาศึกษาทั่วไป</option>
+                    <option value="วิชาเฉพาะ">วิชาเฉพาะ</option>
+                    <option value="วิชาเสรี" selected>วิชาเสรี</option>
+                </select>
+                <select name="credit">
+                    <option value="1">1</option>
+                    <option value="2" selected>2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <button type="button" onclick="delInput('input6')" class="delBtn">del</button>
+            </div>
+        </div> -->
+
+        <div id="endBtn">
+            <div id="nortifyField"></div>
+            <!-- <button type="button" onclick="addInput()" class="btn">Add</button> -->
+            <!-- <button type="button" onclick="summary()" class="btn">Summary</button> -->
+            <button type="button" onclick='tutorial()' class="btn">วิธีดาวน์โหลดไฟล์</button>
+            <input type="file" id="uploadFile">
+            <label for="uploadFile" id="realUploadFile" class="btn" onclick="showFileName()">อัพโหลดไฟล์</label>
+            <button type="button" onclick="getUploadFile()" class="btn">สรุปผล</button>
+           
+        </div>
+        <div id="TempHTML" style="display: none">
+        
+        </div>
+        <div id="show" style="display: none;">
+
+        </div>
+        
+    </form>
+
+    <div id="summarySection">
+        
+    </div>
+
+    <!-- <button type="button" onclick="reset()" class="btn">reset</button> -->
+    <script src="action.js"></script>
+</body>
+</html>
