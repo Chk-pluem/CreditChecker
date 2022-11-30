@@ -175,7 +175,7 @@ function renderSubSummary(type,completelyValue,inputCreditValue,conditionCreditV
     let creditText=document.createElement('div')
     creditText.setAttribute('class','creditText')
     creditText.innerHTML="หน่วยกิต"
-    if(type=="วิชาเลือกเสรี"){creditText=creditText+'(หน่วยกิตในรายวิชาเสรีสามารถทบได้จาก วิชาศึกษาทั่วไป และ วิชาเฉพาะ)'}
+    if(type=="วิชาเลือกเสรี"){creditText.innerHTML=creditText.innerHTML+'(หน่วยกิตในรายวิชาเสรีสามารถทบได้จาก วิชาศึกษาทั่วไป และ วิชาเฉพาะ)'}
     info.appendChild(creditText)
 
     // create table
